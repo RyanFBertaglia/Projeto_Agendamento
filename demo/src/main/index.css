@@ -1,0 +1,55 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.flatpickr-months {
+    padding-top: 30px;
+}
+
+.flatpickr-innerContainer {
+    padding: 0 30px 30px;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
+}
+
+header {
+    text-align: center;
+    color: rgb(11, 38, 39);
+    display: grid;
+    grid-area: header;
+    min-width: 100px;
+    background-color: lightblue;
+}
+
+aside {
+    display: grid;
+    grid-area: aside;
+    min-width: 100px;
+    background-color: lightgray;
+}
+
+main {
+    display: grid;
+    grid-area: main;
+    min-width: 100px;
+    background-color: lightgreen;
+}
+
+footer {
+    display: grid;
+    grid-area: footer;
+    min-width: 100px;
+    background-color: lightcoral;
+}
