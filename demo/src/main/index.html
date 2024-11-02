@@ -3,43 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
-
-
-
-  <link rel="stylesheet" href="./index.css">
-
   <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css>
+  <link rel="stylesheet" href="./areaTestecss.css">
 
   <title>Agendamento</title>
 </head>
 <body>
-<div id="container">
-  <header>
-    <h1 class="tituloSite">Faça seu agendamento!</h1>
-  </header>
-
-  <main>
-    <div id="DD"></div>
-    <!--<input id="DD" type="text" placeholder="Select Date...">-->
-  </main>
-  <div id="botao">
-    <button id="diaEscolhido" type="submit">Send</button>
-  </div>
-
-
-
-  <aside>
-    <p6 id="resultado">Resultado</p6>
-  </aside>
-
-  <footer>
-    <p6>Fim</p6>
-  </footer>
-
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js></script>
-  <script src="index.js"></script>
+<header>
+  <nav>
+    <p>Email</p>
+    <a href="https://github.com/RyanFBertaglia">GitHub</a>
+    <a id="enviarEmail" href="mailto:ryanfernandesbertaglia@gmail.com?&body=Corpo do email">Enviar Email</a>
+    <a href="#conteudoFooterGrid">Contato</a>
+    <div id="botaoNavegação">
+      <button>Como funciona</button>
+      <button>Ver processos</button>
+    </div>
+  </nav>
+</header>
+<hr>
+<div class="titulo">
+  <h1>Encontre o dia certo para você</h1>
+  <h3>Escolha o dia e consulte os horários disponiveis</h3>
 </div>
+<hr>
+<main>
+  <div class="cabeçalho">
+    <h2>Calendário</h2>
+  </div>
+  <div id="espaçoContainer">
+    <div id="espaçoCalendario">
+      <div id="DD"></div>
+      <div id="botao">
+        <button id="diaEscolhido" type="submit">Send</button>
+      </div>
+    </div>
+
+    <div id="espaçoHorarios">
+      <div id="conjuntoTableEBotao">
+        <table id="table1">
+          <tr>
+            Horários disponiveis
+          </tr>
+          <tr>
+            <td id="um" data-horario="08:00" data-usavel="true">08:00</td>
+            <td id="dois" data-horario="08:30" data-usavel="true">08:30</td>
+            <td id="três" data-horario="09:00" data-usavel="true">09:00</td>
+          </tr>
+          <tr>
+            <td id="quatro" data-horario="09:30" data-usavel="true">09:30</td>
+            <td id="cinco" data-horario="10:00" data-usavel="true">10:00</td>
+            <td id="seis" data-horario="10:30" data-usavel="true">10:30</td>
+          </tr>
+          <tr>
+            <td id="sete" data-horario="11:00" data-usavel="true">11:00</td>
+            <td id="oito" data-horario="11:30" data-usavel="true">11:30</td>
+            <td id="nove" data-horario="12:00" data-usavel="true">12:00</td>
+          </tr>
+          <tr>
+            <td id="dez" data-horario="12:30" data-usavel="true">12:30</td>
+            <td id="onze" data-horario="13:00" data-usavel="true">13:00</td>
+            <td id="doze" data-horario="13:30" data-usavel="true">13:30</td>
+          </tr>
+          <tr>
+            <td id="treze" data-horario="14:00" data-usavel="true">14:00</td>
+            <td id="catorze" data-horario="14:30" data-usavel="true">14:30</td>
+            <td id="quinze" data-horario="15:00" data-usavel="true">15:00</td>
+          </tr>
+        </table>
+        <button id="envia">Enviar</button>
+      </div>
+    </div>
+  </div>
+</main>
+<hr>
+
+
+
+<footer>
+  <div class="cabeçalho" name="tituloFooter">
+    <h2>Contato</h1>
+  </div>
+  <div id="conteudoFooterGrid">
+    <div id="Textos">
+      <h4>Email</h4>
+      <p>ryanfernandesbertaglia@gmail.com</p>
+      <h4>GitHub</h4>
+      <p>https://github.com/RyanFBertaglia</p>
+      <h4>Telefone</h4>
+      <p>19982338496</p>
+    </div>
+    <div id="icones">
+      <img src="./email.svg" alt="Icone Email">
+      <img src="./github.svg" alt="Icone GitHub">
+      <img src="./telefone.svg" alt="Icone Telefone">
+    </div>
+  </div>
+</footer>
+
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js></script>
+<script src="index.js"></script>
+<script src="mostra.js"></script>
 </body>
 </html>

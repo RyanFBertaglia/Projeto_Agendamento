@@ -19,16 +19,16 @@ flatpickr("#DD", {
 
 document.getElementById('diaEscolhido').addEventListener('click', function(){
     const valor = document.getElementById('DD').value;
-    document.getElementById("resultado").innerHTML = valor;
+    //document.getElementById("resultado").innerHTML = valor;
     console.log(valor);
 });
 
 
 
 
-window.addEventListener('load', function() {
+/*window.addEventListener('load', function() {
     const calendar = document.querySelector('.flatpickr-calendar');
     if (calendar){
-        calendar.classList.add('large'); // Aplica a classe que aumenta o tamanho
+        calendar.classList.add('large');
     }
-});
+})*/
