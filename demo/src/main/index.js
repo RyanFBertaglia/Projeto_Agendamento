@@ -17,11 +17,7 @@ flatpickr("#DD", {
 
 
 
-document.getElementById('diaEscolhido').addEventListener('click', function(){
-    const valor = document.getElementById('DD').value;
-    //document.getElementById("resultado").innerHTML = valor;
-    console.log(valor);
-});
+
 
 
 

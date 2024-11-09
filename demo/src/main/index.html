@@ -9,98 +9,100 @@
   <title>Agendamento</title>
 </head>
 <body>
-<header>
-  <nav>
-    <p>Email</p>
-    <a href="https://github.com/RyanFBertaglia">GitHub</a>
-    <a id="enviarEmail" href="mailto:ryanfernandesbertaglia@gmail.com?&body=Corpo do email">Enviar Email</a>
-    <a href="#conteudoFooterGrid">Contato</a>
-    <div id="botaoNavegação">
-      <button>Como funciona</button>
-      <button>Ver processos</button>
-    </div>
-  </nav>
-</header>
-<hr>
-<div class="titulo">
-  <h1>Encontre o dia certo para você</h1>
-  <h3>Escolha o dia e consulte os horários disponiveis</h3>
+<div id="elementoConfirmação">
 </div>
-<hr>
-<main>
-  <div class="cabeçalho">
-    <h2>Calendário</h2>
+<div id="elementoBlur">
+  <header>
+    <nav>
+      <a class="links border-underline" href="https://github.com/RyanFBertaglia">GitHub</a>
+      <a class="links border-underline" id="enviarEmail" href="mailto:ryanfernandesbertaglia@gmail.com?&body=Corpo do email">Enviar Email</a>
+      <a class="links border-underline" href="#conteudoFooterGrid">Contato</a>
+      <div id="botaoNavegação">
+        <button id="botaoDeCima">Como funciona</button>
+        <button id="botaoDeBaixo">Ver processos</button>
+      </div>
+    </nav>
+  </header>
+  <hr>
+  <div class="titulo">
+    <h1>Encontre o dia certo para você</h1>
+    <h3>Escolha o dia e consulte os horários disponiveis</h3>
   </div>
-  <div id="espaçoContainer">
-    <div id="espaçoCalendario">
-      <div id="DD"></div>
-      <div id="botao">
-        <button id="diaEscolhido" type="submit">Send</button>
+  <hr>
+  <main>
+    <div class="cabeçalho">
+      <h2>Calendário</h2>
+    </div>
+    <div id="espaçoContainer">
+      <div id="espaçoCalendario">
+        <div id="DD"></div>
+        <div id="botao">
+          <button id="diaEscolhido" type="submit">Send</button>
+        </div>
+      </div>
+
+      <div id="espaçoHorarios">
+        <div id="conjuntoTableEBotao">
+          <table id="table1">
+            <tr>
+              Horários disponiveis
+            </tr>
+            <tr>
+              <td id="um" data-horario="08:00" data-usavel="true">08:00</td>
+              <td id="dois" data-horario="08:30" data-usavel="true">08:30</td>
+              <td id="três" data-horario="09:00" data-usavel="true">09:00</td>
+            </tr>
+            <tr>
+              <td id="quatro" data-horario="09:30" data-usavel="true">09:30</td>
+              <td id="cinco" data-horario="10:00" data-usavel="true">10:00</td>
+              <td id="seis" data-horario="10:30" data-usavel="true">10:30</td>
+            </tr>
+            <tr>
+              <td id="sete" data-horario="11:00" data-usavel="true">11:00</td>
+              <td id="oito" data-horario="11:30" data-usavel="true">11:30</td>
+              <td id="nove" data-horario="12:00" data-usavel="true">12:00</td>
+            </tr>
+            <tr>
+              <td id="dez" data-horario="12:30" data-usavel="true">12:30</td>
+              <td id="onze" data-horario="13:00" data-usavel="true">13:00</td>
+              <td id="doze" data-horario="13:30" data-usavel="true">13:30</td>
+            </tr>
+            <tr>
+              <td id="treze" data-horario="14:00" data-usavel="true">14:00</td>
+              <td id="catorze" data-horario="14:30" data-usavel="true">14:30</td>
+              <td id="quinze" data-horario="15:00" data-usavel="true">15:00</td>
+            </tr>
+          </table>
+          <button id="envia">Enviar</button>
+        </div>
       </div>
     </div>
+  </main>
+  <hr>
 
-    <div id="espaçoHorarios">
-      <div id="conjuntoTableEBotao">
-        <table id="table1">
-          <tr>
-            Horários disponiveis
-          </tr>
-          <tr>
-            <td id="um" data-horario="08:00" data-usavel="true">08:00</td>
-            <td id="dois" data-horario="08:30" data-usavel="true">08:30</td>
-            <td id="três" data-horario="09:00" data-usavel="true">09:00</td>
-          </tr>
-          <tr>
-            <td id="quatro" data-horario="09:30" data-usavel="true">09:30</td>
-            <td id="cinco" data-horario="10:00" data-usavel="true">10:00</td>
-            <td id="seis" data-horario="10:30" data-usavel="true">10:30</td>
-          </tr>
-          <tr>
-            <td id="sete" data-horario="11:00" data-usavel="true">11:00</td>
-            <td id="oito" data-horario="11:30" data-usavel="true">11:30</td>
-            <td id="nove" data-horario="12:00" data-usavel="true">12:00</td>
-          </tr>
-          <tr>
-            <td id="dez" data-horario="12:30" data-usavel="true">12:30</td>
-            <td id="onze" data-horario="13:00" data-usavel="true">13:00</td>
-            <td id="doze" data-horario="13:30" data-usavel="true">13:30</td>
-          </tr>
-          <tr>
-            <td id="treze" data-horario="14:00" data-usavel="true">14:00</td>
-            <td id="catorze" data-horario="14:30" data-usavel="true">14:30</td>
-            <td id="quinze" data-horario="15:00" data-usavel="true">15:00</td>
-          </tr>
-        </table>
-        <button id="envia">Enviar</button>
+
+
+  <footer>
+    <div class="cabeçalho" name="tituloFooter">
+      <h2>Contato</h1>
+    </div>
+    <div id="conteudoFooterGrid">
+      <div id="Textos">
+        <h4>Email</h4>
+        <p>ryanfernandesbertaglia@gmail.com</p>
+        <h4>GitHub</h4>
+        <p>https://github.com/RyanFBertaglia</p>
+        <h4>Telefone</h4>
+        <p>19982338496</p>
+      </div>
+      <div id="icones">
+        <img src="./email.svg" alt="Icone Email">
+        <img src="./github.svg" alt="Icone GitHub">
+        <img src="./telefone.svg" alt="Icone Telefone">
       </div>
     </div>
-  </div>
-</main>
-<hr>
-
-
-
-<footer>
-  <div class="cabeçalho" name="tituloFooter">
-    <h2>Contato</h1>
-  </div>
-  <div id="conteudoFooterGrid">
-    <div id="Textos">
-      <h4>Email</h4>
-      <p>ryanfernandesbertaglia@gmail.com</p>
-      <h4>GitHub</h4>
-      <p>https://github.com/RyanFBertaglia</p>
-      <h4>Telefone</h4>
-      <p>19982338496</p>
-    </div>
-    <div id="icones">
-      <img src="./email.svg" alt="Icone Email">
-      <img src="./github.svg" alt="Icone GitHub">
-      <img src="./telefone.svg" alt="Icone Telefone">
-    </div>
-  </div>
-</footer>
-
+  </footer>
+</div>
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js></script>
 <script src="index.js"></script>
