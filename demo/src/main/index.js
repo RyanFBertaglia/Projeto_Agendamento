@@ -13,18 +13,3 @@ flatpickr("#DD", {
     },
     inline: true
 });
-
-
-
-
-
-
-
-
-
-/*window.addEventListener('load', function() {
-    const calendar = document.querySelector('.flatpickr-calendar');
-    if (calendar){
-        calendar.classList.add('large');
-    }
-})*/

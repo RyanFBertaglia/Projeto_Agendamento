@@ -26,9 +26,10 @@ a{
     padding-bottom: 10px;
     display: block;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 209, 109);
     font-size: medium;
     height: 46px;
+    font-family: 'Figtree', sans-serif;
 }
 
 .links.border-underline {
@@ -43,7 +44,7 @@ a{
     right: 0;
     bottom: 25px;
     height: 1px;
-    background-color: #004085;
+    background-color: rgb(255, 209, 109);
     transition: transform 300ms ease-in-out;
     transform: scaleX(0);
 }
@@ -60,18 +61,20 @@ nav #botaoNavegação{
 }
 
 :root {
-    --hover: #3498db;
-    --text-color: white;
+    --hover: rgba(146, 152, 227, 1);
+    --text-color: rgb(42, 51, 162);
     --border-color: #3498db;
-  }
+    --color-hover: #ffe9c3;
+}
 
   #botaoDeCima, #botaoDeBaixo{
+    border-radius: 8px;
     display: inline-block;
     padding: 3px 16px;
     font-size: medium;
-    color: var(--hover);
+    color: var(--text-color);
     border: 2px solid var(--border-color);
-    background: transparent;
+    background-color: rgba(255, 224, 170, 0.5);
     cursor: pointer;
     transition: color 0.3s, box-shadow 0.3s;
   }
@@ -81,7 +84,8 @@ nav #botaoNavegação{
     padding: 3px 16px;
     font-size: medium;
     color: var(--hover);
-    border: 2px solid var(--border-color);
+    border: 2px solid #545672;
+    border-radius: 8px;
     background: transparent;
     cursor: pointer;
     transition: color 0.3s, box-shadow 0.3s;
@@ -92,17 +96,19 @@ nav #botaoNavegação{
   #diaEscolhido:hover, #diaEscolhido:focus,
   #envia:hover,
   #envia:focus, .botaozinho:hover, .botaozinho:focus {
-    color: var(--text-color);
+    color: var(--color-hover);
     box-shadow: inset 0 0 0 2em var(--hover);
   }
 
 #botaoDeCima{
     padding: 3px 18px;
     width: 100%;
+    border: 1px solid #545672;
 }
 #botaoDeBaixo{
     padding: 3px 18px;
     width: 100%;
+    border: 1px solid #545672;
 }
 
 #diaEscolhido, #envia{
@@ -127,11 +133,14 @@ nav #botaoNavegação{
 }
 
 .titulo{
+    background-color: rgba(146, 152, 227, 0.15);
     height: 445px;
     align-items: center;
     justify-items: center;
     font-size: 200%;
 }
+
+
 
 main{
     height: 657px;
@@ -163,6 +172,7 @@ main{
 }
 
 footer{
+    background-color: rgba(255, 202, 109, 0.25);
     height: 454px;
 }
 
@@ -181,8 +191,24 @@ footer{
     padding-bottom: 10px;
 }
 
+h1{
+    color: #004085;
+    font-family: 'Figtree', sans-serif;
+}
 h2{
     padding-left: 5%;
+    color: #9298E3;
+    font-family: 'Figtree', sans-serif;
+}
+h3{
+    color: #FFCA6D;
+    font-family: 'Figtree', sans-serif;
+}
+h4{
+    font-family: 'Figtree', sans-serif;
+}
+p{
+    font-family: 'Figtree', sans-serif;
 }
 
 table{
@@ -223,7 +249,7 @@ td:hover{
     padding: 20px;
     height: 200px;
     backdrop-filter: blur(200px);
-    background-color: aquamarine;
+    background-color: #ffcf72;
     z-index: 4;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -249,6 +275,14 @@ td:hover{
   #espaçoHorarios{
     width: 100%;
   }
+  @media (min-width: 900px) and (max-width: 911px){
+    #botaoDeCima{
+        height: 48px;
+    }
+    #botaoDeBaixo{
+        height: 48px;
+    }
+  }
   @media (min-width: 600px) and (max-width: 2225px){
     #botaoDeCima{
         width: 160%;
@@ -260,5 +294,21 @@ td:hover{
         grid-template-columns: repeat(2, 1fr);
         row-gap: 15px;
       }
+  }
+  @media (max-width: 400px){
+    .titulo{
+        height: 540px;
+    }
+    #botaoDeCima{
+        width: 140%;
+        font-size: smaller;
+    }
+    #botaoDeBaixo{
+        width: 140%;
+        font-size: smaller;
+    }
+    a{
+        font-size: smaller;
+    }
   }
 /*Abaixo de 836px de largura o titulo deve ser mudado de fonte para dar espaçao a uma margem nas laterais*/
