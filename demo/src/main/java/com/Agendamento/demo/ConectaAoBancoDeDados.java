@@ -1,19 +1,27 @@
 package com.Agendamento.demo;
 import lombok.Getter;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 
 import static java.sql.DriverManager.getConnection;
 
+@SpringBootApplication
 public class ConectaAoBancoDeDados {
 
     public static void main(String[] args) {
+        SpringApplication.run(ConectaAoBancoDeDados.class, args);
         String url = "jdbc:postgresql://ep-shiny-water-a6xpmjed.us-west-2.retooldb.com/retool?sslmode=require";
         String user = "retool";
+        //String passworda = dotenv.get("SENHA_DB_RETOOL");
+       // System.out.println(passworda);
         String password = "Ox3yXF2lsZdg";
-        String sql = "select * from horarios_indisponiveis";
 
+
+        String sql = "select * from horarios_indisponiveis";
         try (Connection conn = getConnection(url, user, password)) {
 
             System.out.println("Conectado com sucesso!");

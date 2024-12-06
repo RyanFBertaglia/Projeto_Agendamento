@@ -10,12 +10,12 @@ import java.util.Scanner;
 public class AgendamentoAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AgendamentoAppApplication.class, args);
+			SpringApplication.run(AgendamentoAppApplication.class, args);
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Digite o número de linhas: ");
 		int linhasUsadas = sc.nextInt();
-		sc.nextLine(); // Consumir a quebra de linha deixada pelo nextInt()
+		sc.nextLine();
 
 		String[] principal = new String[linhasUsadas];
 		for (int i = 0; i < linhasUsadas; i++) {
@@ -36,7 +36,6 @@ public class AgendamentoAppApplication {
 			}
 		}
 
-		// Imprimir as linhas ordenadas
 		System.out.println("Linhas ordenadas por comprimento (maior para menor):");
 		for (String linha : principal) {
 			System.out.println(linha);
