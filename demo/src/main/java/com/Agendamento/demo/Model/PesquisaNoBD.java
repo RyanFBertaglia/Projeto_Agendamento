@@ -27,5 +27,6 @@ public class PesquisaNoBD {
         }catch (SQLException e){
             System.out.println("Erro de conexão: " + e.getMessage());
         }
+        return null;
     }
 }

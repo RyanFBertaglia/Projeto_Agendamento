@@ -21,8 +21,8 @@ public class Controller {
     }
 
     @GetMapping("/buscahorarios")
-    public ResponseEntity<EstruturaDaLista> BuscaHorario(@RequestBody String data){
+    public ResponseEntity<ArrayList<EstruturaDaLista>> BuscaHorario(@RequestBody String data){
         ArrayList<EstruturaDaLista> resposta = PesquisaNoBD.BuscaHorario(data);
-        return ResponseEntity.status(201).body(resposta.getBody());
+        return ResponseEntity.status(201).body(resposta);
     }
 }

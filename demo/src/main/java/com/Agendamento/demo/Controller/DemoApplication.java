@@ -8,8 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-        String diaDeBusca = "2024-09-18";
-        PesquisaNoBD pesquisaNoBD = new PesquisaNoBD();
-        pesquisaNoBD.BuscaHorario(diaDeBusca);
+        //String diaDeBusca = "2024-09-18";
     }
 }

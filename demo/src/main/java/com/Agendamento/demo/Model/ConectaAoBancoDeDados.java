@@ -12,7 +12,7 @@ public class ConectaAoBancoDeDados {
     public static Connection Conexao() {
 
             try{
-                if (conn == null) {
+                if (conn == null || conn.isClosed()) {
                     conn = DriverManager.getConnection(url, user, password);
                 }
                 return conn;
