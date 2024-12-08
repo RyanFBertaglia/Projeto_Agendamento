@@ -1,4 +1,4 @@
-package com.Agendamento.demo;
+package com.Agendamento.demo.Entities;
 
 public class EstruturaDaLista {
     String dia;
