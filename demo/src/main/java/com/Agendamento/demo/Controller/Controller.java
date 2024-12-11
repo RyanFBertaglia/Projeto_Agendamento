@@ -1,11 +1,13 @@
 package com.Agendamento.demo.Controller;
 
+import com.Agendamento.demo.Entities.EstruturaDaInsercao;
 import com.Agendamento.demo.Entities.EstruturaDaLista;
 import com.Agendamento.demo.Entities.Users;
 import com.Agendamento.demo.Model.PesquisaNoBD;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 @RestController
 public class Controller {
@@ -23,8 +25,10 @@ public class Controller {
     }
 
     @PostMapping("/marcar")
-    public ResponseEntity<ArrayList> marcarHorario(@RequestBody){
-        confirmacao = salvarNoDb();
-        return ResponseEntity.status("ok").body(confirmacao);
+    public int marcarHorario(@RequestBody EstruturaDaInsercao req){
+        int id = req.getId();
+        System.out.printf("%d", id);
+
+        return id;
     }
 }
