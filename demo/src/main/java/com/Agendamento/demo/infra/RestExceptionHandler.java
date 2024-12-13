@@ -1,7 +1,6 @@
-package infra;
+package com.Agendamento.demo.infra;
 
-import exceptions.HorarioIndisponivel;
-import exceptions.UserNaoEncontrado;
+import com.Agendamento.demo.exceptions.*;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +15,17 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(HorarioIndisponivel.class)
-    private ResponseEntity<String> CredenciaisIncorretas(HorarioIndisponivel exception){
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais incorretas");
+    private ResponseEntity<String> NaoCadastrar(HorarioIndisponivel exception){
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(exception.getMessage());
     }
 
     @ExceptionHandler(UserNaoEncontrado.class)
     private ResponseEntity<String> userNaoEncontrado(UserNaoEncontrado exception){
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    @ExceptionHandler(DataEnviadaErrada.class)
+    private ResponseEntity<String> EnviouDataErrada(DataEnviadaErrada exception){
+        return ResponseEntity.status(422).body(exception.getMessage());
     }
 }

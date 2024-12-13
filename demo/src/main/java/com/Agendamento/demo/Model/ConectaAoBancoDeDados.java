@@ -1,5 +1,5 @@
 package com.Agendamento.demo.Model;
-import java.sql.*;;
+import java.sql.*;
 
 public class ConectaAoBancoDeDados {
 

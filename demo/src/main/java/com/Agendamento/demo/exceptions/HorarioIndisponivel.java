@@ -1,5 +1,5 @@
-package exceptions;
+package com.Agendamento.demo.exceptions;
 
 public class HorarioIndisponivel extends RuntimeException{
-    public HorarioIndisponivel() {super("Horario Indisponivel"); }
+    public HorarioIndisponivel(String message) {super(message); }
 }

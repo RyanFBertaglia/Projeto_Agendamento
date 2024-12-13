@@ -1,22 +1,14 @@
 package com.Agendamento.demo.Controller;
 
-import com.Agendamento.demo.Entities.EstruturaDaInsercao;
+import com.Agendamento.demo.Entities.EstruturaDoAgendamento;
 import com.Agendamento.demo.Entities.EstruturaDaLista;
-import com.Agendamento.demo.Entities.Users;
 import com.Agendamento.demo.Model.PesquisaNoBD;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
-import java.util.Map;
 
 @RestController
 public class Controller {
-
-    @PostMapping("/define")
-    public ResponseEntity<String> recebe(@RequestBody Users user){
-        String resposta = "Resposta por variavel";
-        return ResponseEntity.status(201).body(resposta);
-    }
 
     @GetMapping("/buscahorarios")
     public ResponseEntity<ArrayList<EstruturaDaLista>> BuscaHorario(@RequestParam String data){
@@ -25,10 +17,14 @@ public class Controller {
     }
 
     @PostMapping("/marcar")
-    public int marcarHorario(@RequestBody EstruturaDaInsercao req){
-        int id = req.getId();
-        System.out.printf("%d", id);
+    public ResponseEntity<String> marcarHorario(@RequestBody EstruturaDoAgendamento req){
+        int linhasAfet = req.salvaHorario();
+        return ResponseEntity.status(201).body("Agendado com sucesso, dia: " + req.getDia() + " hora: " + req.getHora());
+    }
 
-        return id;
+    @DeleteMapping("/cancelar")
+    public ResponseEntity<String> cancelaHorario(@RequestBody EstruturaDoAgendamento req){
+        req.deletaHorario();
+        return ResponseEntity.status(200).body("Seu horaio foi cancelado");
     }
 }
