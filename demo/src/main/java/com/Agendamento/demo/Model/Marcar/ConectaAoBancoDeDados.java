@@ -1,6 +1,9 @@
-package com.Agendamento.demo.Model;
+package com.Agendamento.demo.Model.Marcar;
+import org.springframework.stereotype.Component;
+
 import java.sql.*;
 
+@Component
 public class ConectaAoBancoDeDados {
 
         private static final String url = "jdbc:postgresql://ep-shiny-water-a6xpmjed.us-west-2.retooldb.com/retool?sslmode=require";
@@ -9,7 +12,7 @@ public class ConectaAoBancoDeDados {
 
         private static Connection conn;
 
-    public static Connection Conexao() {
+    public Connection Conexao() {
 
             try{
                 if (conn == null || conn.isClosed()) {

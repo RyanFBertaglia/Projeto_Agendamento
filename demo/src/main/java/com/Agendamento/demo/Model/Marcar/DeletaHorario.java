@@ -1,18 +1,29 @@
-package com.Agendamento.demo.Model;
+package com.Agendamento.demo.Model.Marcar;
 
 import com.Agendamento.demo.exceptions.DataEnviadaErrada;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+@Service
 public class DeletaHorario{
-    public static int deletar(int id, String dia, String hora) {
+
+    private final ConectaAoBancoDeDados conectaAoBancoDeDados;
+
+    @Autowired
+    public DeletaHorario(ConectaAoBancoDeDados conectaAoBancoDeDados) {
+        this.conectaAoBancoDeDados = conectaAoBancoDeDados;
+    }
+
+    public int deletar(int id, String dia, String hora) {
 
         String sql = "DELETE FROM horarios_indisponiveis WHERE\n" +
                 "dia = ?::date and hora = ? and idcliente = ?";
 
-        try (Connection conn = ConectaAoBancoDeDados.Conexao();
+        try (Connection conn = conectaAoBancoDeDados.Conexao();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, dia);
             stmt.setString(2, hora);

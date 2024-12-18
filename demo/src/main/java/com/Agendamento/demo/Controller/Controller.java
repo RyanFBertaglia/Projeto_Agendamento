@@ -2,7 +2,8 @@ package com.Agendamento.demo.Controller;
 
 import com.Agendamento.demo.Entities.EstruturaDoAgendamento;
 import com.Agendamento.demo.Entities.EstruturaDaLista;
-import com.Agendamento.demo.Model.PesquisaNoBD;
+import com.Agendamento.demo.Model.Marcar.PesquisaNoBD;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
@@ -10,9 +11,17 @@ import java.util.ArrayList;
 @RestController
 public class Controller {
 
+    private PesquisaNoBD pesquisaNoBD;
+
+    @Autowired
+    public Controller(PesquisaNoBD pesquisaNoBD) {
+        this.pesquisaNoBD = pesquisaNoBD;
+    }
+
     @GetMapping("/buscahorarios")
     public ResponseEntity<ArrayList<EstruturaDaLista>> BuscaHorario(@RequestParam String data){
-        ArrayList<EstruturaDaLista> resposta = PesquisaNoBD.BuscaHorario(data);
+
+        ArrayList<EstruturaDaLista> resposta = pesquisaNoBD.BuscaHorario(data);
         return ResponseEntity.status(200).body(resposta);
     }
 
