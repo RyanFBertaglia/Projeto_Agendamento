@@ -1,47 +1,50 @@
 package com.Agendamento.demo.Entities;
 
-import com.Agendamento.demo.Model.Marcar.BuscarID;
-import com.Agendamento.demo.Model.Marcar.DeletaHorario;
-import com.Agendamento.demo.Model.Marcar.SalvaHorario;
-import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class EstruturaDoAgendamento extends EstruturaDaLista {
+@Component
+public class EstruturaDoAgendamento {
 
-    @Getter
-    private final int id;
     private final String email;
     private final String senha;
+    private final String dia;
+    private final String hora;
 
-    private BuscarID buscarID;
-    private SalvaHorario salvaHorario;
-    private DeletaHorario deletaHorario;
-
-    @Autowired
-    public EstruturaDoAgendamento(String dia, String hora, String email, String senha) throws Exception{
-        super(dia, hora);
+    public EstruturaDoAgendamento(String dia, String hora, String email, String senha) {
+        this.dia = dia;
+        this.hora = hora;
         this.email = email;
         this.senha = senha;
-
-        this.buscarID = buscarID;
-        this.salvaHorario = salvaHorario;
-        this.deletaHorario = deletaHorario;
-
-        this.id = setId(email, senha);
     }
 
-    public int setId(String email, String senha) throws Exception{
-        int id = buscarID.retornaId(email, senha);
-        if (id == 0) throw new RuntimeException("Erro ao validar o usuario");
-        return id;
-    }
-
-    public int salvaHorario(){
-        return salvaHorario.salvar(this.getId(), this.getDia(), this.getHora());
-    }
-    public int deletaHorario(){
-        return deletaHorario.deletar(this.getId(), this.getDia(), this.getHora());
+    public EstruturaDoAgendamento() {
+        this.dia = "";
+        this.hora = "";
+        this.email = "";
+        this.senha = "";
     }
 
 
+    public String getDia() {
+        return dia;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+    /*public int salvaHorario() {
+        return servicos.salvarHorario(this.id, this.dia, this.hora);
+    }
+
+    public int deletaHorario() {
+        return servicos.deletarHorario(this.id, this.dia, this.hora);
+    }*/
 }

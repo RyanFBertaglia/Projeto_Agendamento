@@ -3,13 +3,13 @@ package com.Agendamento.demo.Model.Marcar;
 import com.Agendamento.demo.exceptions.DataEnviadaErrada;
 import com.Agendamento.demo.exceptions.HorarioIndisponivel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Repository
+@Service
 public class SalvaHorario {
 
     private final ConectaAoBancoDeDados conectaAoBancoDeDados;
