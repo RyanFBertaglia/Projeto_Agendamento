@@ -1,14 +1,17 @@
 package com.Agendamento.demo.Entities;
 
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 @Component
+@Getter
 public class EstruturaDoAgendamento {
 
     private final String email;
     private final String senha;
-    private final String dia;
     private final String hora;
+    private final String dia;
+
 
     public EstruturaDoAgendamento(String dia, String hora, String email, String senha) {
         this.dia = dia;
@@ -23,28 +26,4 @@ public class EstruturaDoAgendamento {
         this.email = "";
         this.senha = "";
     }
-
-
-    public String getDia() {
-        return dia;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-    /*public int salvaHorario() {
-        return servicos.salvarHorario(this.id, this.dia, this.hora);
-    }
-
-    public int deletaHorario() {
-        return servicos.deletarHorario(this.id, this.dia, this.hora);
-    }*/
 }

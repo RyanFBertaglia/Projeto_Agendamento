@@ -19,8 +19,6 @@ public class BuscarID {
         this.conectaAoBancoDeDados = conectaAoBancoDeDados;
     }
 
-
-
     public int retornaId(String email, String senha) {
 
         String sql = "SELECT id from clientes\n" +
@@ -32,7 +30,7 @@ public class BuscarID {
             stmt.setString(2, senha);
 
             ResultSet res = stmt.executeQuery();
-            if (!res.next()) { // Verifica se o ResultSet está vazio
+            if (!res.next()) {
                 throw new UserNaoEncontrado("Usuário não foi encontrado.");
             }
 

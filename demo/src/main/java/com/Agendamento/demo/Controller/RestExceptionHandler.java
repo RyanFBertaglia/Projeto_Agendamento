@@ -1,4 +1,4 @@
-package com.Agendamento.demo.infra;
+package com.Agendamento.demo.Controller;
 
 import com.Agendamento.demo.exceptions.*;
 import org.springframework.context.annotation.ComponentScan;
