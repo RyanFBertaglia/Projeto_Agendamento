@@ -1,8 +1,11 @@
 package com.Agendamento.demo.Entities;
 
+import lombok.Getter;
+
 import java.lang.String;
 
 
+@Getter
 public class EstruturaDaLista {
     private final String dia;
     private final String hora;
@@ -11,13 +14,8 @@ public class EstruturaDaLista {
         this.dia = dia;
         this.hora = hora;
     }
-
-    public String getDia() {
-        return this.dia;
+    public EstruturaDaLista() {
+        this.dia = "";
+        this.hora = "";
     }
-
-    public String getHora() {
-        return this.hora;
-    }
-
 }

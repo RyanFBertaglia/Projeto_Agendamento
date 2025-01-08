@@ -1,10 +1,11 @@
-package com.Agendamento.demo.Model.Marcar;
+package com.Agendamento.demo.Model.HorariosService;
+import com.Agendamento.demo.exceptions.FalhaConexao;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
 
 @Component
-public class ConectaAoBancoDeDados {
+public class AcessoDB {
 
         private static final String url = "jdbc:postgresql://ep-shiny-water-a6xpmjed.us-west-2.retooldb.com/retool?sslmode=require";
         private static final String user = "retool";
@@ -20,7 +21,7 @@ public class ConectaAoBancoDeDados {
                 }
                 return conn;
             } catch (SQLException e) {
-                throw new RuntimeException("Erro ao conectar ao banco de dados"+ e.getMessage(), e);
+                throw new FalhaConexao();
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.Agendamento.demo.Model.Marcar;
+package com.Agendamento.demo.Model.HorariosService;
 
 import com.Agendamento.demo.exceptions.DataEnviadaErrada;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,31 +11,30 @@ import java.sql.SQLException;
 @Service
 public class DeletaHorario{
 
-    private final ConectaAoBancoDeDados conectaAoBancoDeDados;
+    private final AcessoDB acessoDB;
 
     @Autowired
-    public DeletaHorario(ConectaAoBancoDeDados conectaAoBancoDeDados) {
-        this.conectaAoBancoDeDados = conectaAoBancoDeDados;
+    public DeletaHorario(AcessoDB acessoDB) {
+        this.acessoDB = acessoDB;
     }
 
-    public int deletar(int id, String dia, String hora) {
+    public void deletar(int id, String dia, String hora) {
 
         String sql = "DELETE FROM horarios_indisponiveis WHERE\n" +
                 "dia = ?::date and hora = ? and idcliente = ?";
 
-        try (Connection conn = conectaAoBancoDeDados.Conexao();
+        try (Connection conn = acessoDB.Conexao();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, dia);
             stmt.setString(2, hora);
             stmt.setInt(3, id);
 
-            return stmt.executeUpdate();
+            stmt.executeUpdate();
         } catch (SQLException e) {
             if ("22008".equals(e.getSQLState())) {
                 throw new DataEnviadaErrada();
             }
             System.out.println("Erro de conexão: " + e.getMessage());
         }
-        return 0;
     }
 }

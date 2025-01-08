@@ -1,4 +1,4 @@
-package com.Agendamento.demo.Model.Marcar;
+package com.Agendamento.demo.Model.HorariosService;
 
 import com.Agendamento.demo.exceptions.DataEnviadaErrada;
 import com.Agendamento.demo.exceptions.HorarioIndisponivel;
@@ -12,25 +12,24 @@ import java.sql.SQLException;
 @Service
 public class SalvaHorario {
 
-    private final ConectaAoBancoDeDados conectaAoBancoDeDados;
+    private final AcessoDB acessoDB;
 
     @Autowired
-    public SalvaHorario(ConectaAoBancoDeDados conectaAoBancoDeDados) {
-        this.conectaAoBancoDeDados = conectaAoBancoDeDados;
+    public SalvaHorario(AcessoDB acessoDB) {
+        this.acessoDB = acessoDB;
     }
 
-    public int salvar(int id, String dia, String hora) {
+    public void salvar(int id, String dia, String hora) {
 
         String sql = "INSERT INTO horarios_indisponiveis (dia, hora, idcliente)\n" +
                 "VALUES (?::date, ?, ?)";
 
-        try (Connection conn = conectaAoBancoDeDados.Conexao();
+        try (Connection conn = acessoDB.Conexao();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, dia);
             stmt.setString(2, hora);
             stmt.setInt(3, id);
-
-           return stmt.executeUpdate();
+            stmt.executeUpdate();
         } catch (SQLException e) {
             if ("23505".equals(e.getSQLState())) {
                 throw new HorarioIndisponivel("Erro: Horario já esta ocupado");
@@ -41,6 +40,5 @@ public class SalvaHorario {
                 System.out.println("Erro de conexão: " + e.getMessage());
             }
         }
-        return 0;
     }
 }

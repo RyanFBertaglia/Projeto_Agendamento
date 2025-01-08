@@ -1,4 +1,4 @@
-package com.Agendamento.demo.Model.Marcar;
+package com.Agendamento.demo.Model.HorariosService;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class PesquisaNoBD {
 
-    private final ConectaAoBancoDeDados conectaAoBancoDeDados;
+    private final AcessoDB acessoDB;
 
     @Autowired
-    public PesquisaNoBD(ConectaAoBancoDeDados conectaAoBancoDeDados) {
-        this.conectaAoBancoDeDados = conectaAoBancoDeDados;
+    public PesquisaNoBD(AcessoDB acessoDB) {
+        this.acessoDB = acessoDB;
     }
 
 
@@ -24,7 +24,7 @@ public class PesquisaNoBD {
         ArrayList<EstruturaDaLista> lista = new ArrayList<>();
 
 
-        try (Connection conn = conectaAoBancoDeDados.Conexao();
+        try (Connection conn = acessoDB.Conexao();
              PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setString(1, diaDeBusca);
             ResultSet res = stmt.executeQuery();
@@ -37,7 +37,7 @@ public class PesquisaNoBD {
 
             return lista;
         }catch (SQLException e) {
-                System.out.println("Erro: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
         }
         return new ArrayList<>();
     }

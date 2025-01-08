@@ -28,4 +28,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     private ResponseEntity<String> EnviouDataErrada(DataEnviadaErrada exception){
         return ResponseEntity.status(422).body(exception.getMessage());
     }
+    @ExceptionHandler(FalhaConexao.class)
+    private ResponseEntity<String> falhaDeConexao(FalhaConexao exception){
+        return ResponseEntity.status(503).body(exception.getMessage());
+    }
 }
