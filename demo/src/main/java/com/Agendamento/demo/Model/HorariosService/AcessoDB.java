@@ -1,5 +1,7 @@
 package com.Agendamento.demo.Model.HorariosService;
 import com.Agendamento.demo.exceptions.FalhaConexao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -7,11 +9,15 @@ import java.sql.*;
 @Component
 public class AcessoDB {
 
-        private static final String url = "jdbc:postgresql://ep-shiny-water-a6xpmjed.us-west-2.retooldb.com/retool?sslmode=require";
-        private static final String user = "retool";
-        private static final String password = "Ox3yXF2lsZdg";
+    @Value("${db.url}")
+    private static String url;
+    @Value("${db.user}")
+    private static String user;
+    @Value("${db.password}")
+    private static String password;
 
-        private static Connection conn;
+    @Autowired
+    private static Connection conn;
 
     public Connection Conexao() {
 
