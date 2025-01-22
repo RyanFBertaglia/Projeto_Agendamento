@@ -1,6 +1,5 @@
 package com.Agendamento.demo.Model.HorariosService;
 import com.Agendamento.demo.exceptions.FalhaConexao;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -10,13 +9,12 @@ import java.sql.*;
 public class AcessoDB {
 
     @Value("${db.url}")
-    private static String url;
+    private String url;
     @Value("${db.user}")
-    private static String user;
+    private String user;
     @Value("${db.password}")
-    private static String password;
+    private String password;
 
-    @Autowired
     private static Connection conn;
 
     public Connection Conexao() {

@@ -38,7 +38,6 @@ public class EstruturaDoAgendamento {
     public String setUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
-            System.out.println(authentication.getName());
             return authentication.getName();
         }
         throw new UserNaoEncontrado();

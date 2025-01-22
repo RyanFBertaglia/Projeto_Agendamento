@@ -26,7 +26,6 @@ public class DadosUser implements BuscaUser {
 
         String sql = "SELECT id from clientes\n" +
                 "WHERE clientes.email = ?";
-        System.out.println(email);
 
         try (Connection conn = acessoDB.Conexao();
              PreparedStatement stmt = conn.prepareStatement(sql)){

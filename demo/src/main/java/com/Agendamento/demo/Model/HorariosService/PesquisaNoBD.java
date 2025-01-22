@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import com.Agendamento.demo.Entities.EstruturaDaLista;
+import com.Agendamento.demo.exceptions.DataEnviadaErrada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +38,11 @@ public class PesquisaNoBD {
 
             return lista;
         }catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            if("22007".equals(e.getSQLState()) || "22018".equals(e.getSQLState())){
+                throw new DataEnviadaErrada();
+            } else{
+                return new ArrayList<>();
+            }
         }
-        return new ArrayList<>();
     }
 }
