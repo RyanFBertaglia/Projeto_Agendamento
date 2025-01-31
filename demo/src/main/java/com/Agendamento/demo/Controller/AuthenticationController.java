@@ -55,7 +55,7 @@ public class AuthenticationController {
         var auth = this.authenticationManager.authenticate(usernamePassword);
         var token = tokenService.generateToken((User) auth.getPrincipal());
 
-        Cookie cookie = new Cookie("jwt", token);
+        Cookie cookie = new Cookie("jwtToken", token);
         cookie.setHttpOnly(true);
         cookie.setSecure(true);
         cookie.setPath("/");

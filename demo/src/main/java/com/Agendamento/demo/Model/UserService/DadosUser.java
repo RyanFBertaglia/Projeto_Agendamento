@@ -33,7 +33,6 @@ public class DadosUser implements BuscaUser {
 
             ResultSet res = stmt.executeQuery();
             if (!res.next()) {
-                System.out.println("Erro de resposta");
                 throw new UserNaoEncontrado("Usuário não foi encontrado.");
             }
 

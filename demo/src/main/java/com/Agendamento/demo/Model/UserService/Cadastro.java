@@ -34,9 +34,8 @@ public class Cadastro {
         } catch (SQLException e) {
             if ("23505".equals(e.getSQLState())) {
                 throw new HorarioIndisponivel("Erro: Este usuario já existe");
-            } else {
-                System.out.println("Erro de conexão: " + e.getMessage());
             }
+                throw new RuntimeException("Erro de conexão: " + e.getMessage());
         }
     }
 }

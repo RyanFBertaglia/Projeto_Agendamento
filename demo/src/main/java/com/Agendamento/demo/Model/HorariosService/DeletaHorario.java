@@ -34,7 +34,7 @@ public class DeletaHorario{
             if ("22008".equals(e.getSQLState())) {
                 throw new DataEnviadaErrada();
             }
-            System.out.println("Erro de conexão: " + e.getMessage());
+            throw new RuntimeException("Erro de conexão: " + e.getMessage());
         }
     }
 }
