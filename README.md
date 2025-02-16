@@ -6,11 +6,11 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 ---
 
 ## Funcionalidades
-    - **Autenticação de Usuário:**
+Autenticação de Usuário:
     - Endpoint para login que valida as credenciais e retorna um JWT.
-    - **Autorização com JWT:**
+Autorização com JWT:
     - Uso do token JWT para garantir que apenas usuários autenticados acessem os endpoints protegidos.
-    - **Agendamento de Dias:**
+Agendamento de Dias:
     - Permite que usuários autenticados criem, consultem e, se aplicável, cancelem agendamentos.
 
 ---
