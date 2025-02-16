@@ -17,7 +17,6 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 
 ## Tecnologias Utilizadas
 
-```
 - **Java 17**
 - **Spring Boot**
 - **Spring Security**
@@ -26,16 +25,13 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 - **Maven**
 - **Docker**
 - **JUnit**
-```
 
 ---
 
-## Pré-requisitos e Instalação
-
 ### Antes certifique-se de ter:
-    - Java JDK 11 (ou superior)
-    - Maven 3.6
-    - Docker
+- Java JDK 11 (ou superior)
+- Maven 3.6
+- Docker
     
 ### Passo a passo
 
@@ -60,15 +56,15 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 ---
 
 ## Aplicação em alguns ambientes
-    ### Ambiente de produção
+### Ambiente de produção
 ![Database page](src/main/resources/static/logs.png)
 
-    ### Dados recebidos no BD PostgreSQL 
+### Dados recebidos no BD PostgreSQL 
 ![Database page](src/main/resources/static/dadosAgenda.png)
     
-    ## Testes Funcionais com JUnit
+## Testes Funcionais com JUnit
 ![TestesPage](src/main/resources/static/testes.png)
 
-    ### Aplicação no Postman
+### Aplicação no Postman
 ![PostmanPage](src/main/resources/static/postmanLogin.png)
 ![PostmanPage](src/main/resources/static/postmanAgendar.png)
