@@ -13,6 +13,7 @@ Autorização com JWT:
 Agendamento de Dias:  
     - Permite que usuários autenticados criem, consultem e, se aplicável, cancelem agendamentos.  
 
+
 ---
 
 ## Tecnologias Utilizadas
