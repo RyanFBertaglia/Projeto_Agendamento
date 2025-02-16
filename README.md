@@ -48,10 +48,9 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 ---
 
 ### Caso queira executar em um container:
-
-    > A partir do Docker file no terminal ececute: <br/>
-    > docker build -t suaimagem .
-    > docker run --name seu_container -p 8080:8080 suaimagem
+#### A partir do Docker file no terminal ececute: <br/>
+    docker build -t suaimagem .
+    docker run --name seu_container -p 8080:8080 suaimagem
 
 ---
 
