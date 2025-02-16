@@ -58,7 +58,7 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 
 ## Aplicação em alguns ambientes
 ### Aplicação em Nuvem
-![Database page](src/main/resources/static/logs.png)
+![Cloud page](src/main/resources/static/logs.png)
 
 ### Dados recebidos no BD PostgreSQL 
 ![Database page](src/main/resources/static/dadosAgenda.png)
