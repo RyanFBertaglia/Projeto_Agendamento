@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -31,15 +30,13 @@ public class Controller {
 
     @PostMapping("/marcar")
     public ResponseEntity<String> marcarHorario(@RequestBody EstruturaDoAgendamento req) throws RuntimeException{
-        int id = estruturaDoAgendamento.inicializa();
-        req.setId(id);
-        servicos.salvarHorario(req.getId(), req.getDia(), req.getHora());
+        servicos.salvarHorario(estruturaDoAgendamento.inicializa(), req.getDia(), req.getHora());
         return ResponseEntity.status(201).body("Agendado com sucesso, dia: " + req.getDia() + " hora: " + req.getHora());
     }
 
     @DeleteMapping("/cancelar")
     public ResponseEntity<String> cancelaHorario(@RequestBody EstruturaDoAgendamento req){
-        servicos.deletarHorario(req.getId(), req.getDia(), req.getHora());
+        servicos.deletarHorario(estruturaDoAgendamento.inicializa(), req.getDia(), req.getHora());
         return ResponseEntity.status(200).body("Seu horaio foi cancelado");
     }
 

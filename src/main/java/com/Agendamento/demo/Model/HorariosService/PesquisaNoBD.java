@@ -6,43 +6,45 @@ import java.util.ArrayList;
 import com.Agendamento.demo.Entities.EstruturaDaLista;
 import com.Agendamento.demo.exceptions.DataEnviadaErrada;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class PesquisaNoBD {
 
-    private final AcessoDB acessoDB;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public PesquisaNoBD(AcessoDB acessoDB) {
-        this.acessoDB = acessoDB;
+    public PesquisaNoBD(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
-
 
     public ArrayList<EstruturaDaLista> BuscaHorario(String diaDeBusca) {
         String sql = "SELECT * FROM horarios_indisponiveis WHERE dia = ?::date";
         ArrayList<EstruturaDaLista> lista = new ArrayList<>();
+        ConfereHorario.confereDia(diaDeBusca);
 
+        try {
+            return (ArrayList<EstruturaDaLista>) jdbcTemplate.query(sql, new Object[]{diaDeBusca}, this::mapper);
+        }catch (DataAccessException e) {
+            Throwable cause = e.getCause();
 
-        try (Connection conn = acessoDB.Conexao();
-             PreparedStatement stmt = conn.prepareStatement(sql)){
-            stmt.setString(1, diaDeBusca);
-            ResultSet res = stmt.executeQuery();
-
-            while (res.next()) {
-                String dia = res.getString(1);
-                String horario = res.getString(2);
-                lista.add(new EstruturaDaLista(dia, horario));
+            if (cause instanceof SQLException sqlEx) {
+                String sqlState = sqlEx.getSQLState();
+                if ("22007".equals(sqlState) || "22018".equals(sqlState)) {
+                    throw new DataEnviadaErrada();
+                }
             }
-
-            return lista;
-        }catch (SQLException e) {
-            if("22007".equals(e.getSQLState()) || "22018".equals(e.getSQLState())){
-                throw new DataEnviadaErrada();
-            } else{
-                return new ArrayList<>();
-            }
+            throw new RuntimeException("Erro de conexão: " + e.getMessage());
         }
+    }
+
+    private EstruturaDaLista mapper(ResultSet rs, int row) throws SQLException{
+        return new EstruturaDaLista(
+                rs.getString(1),
+                rs.getString(2)
+        );
     }
 }

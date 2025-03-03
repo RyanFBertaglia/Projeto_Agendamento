@@ -48,7 +48,6 @@ public class SecurityFilter extends OncePerRequestFilter {
         if(request.getCookies() != null){
             for(Cookie cookie : request.getCookies()){
                 if("jwtToken".equals(cookie.getName())){
-                    System.out.println(cookie.getValue());
                     return cookie.getValue();
                 }
             }

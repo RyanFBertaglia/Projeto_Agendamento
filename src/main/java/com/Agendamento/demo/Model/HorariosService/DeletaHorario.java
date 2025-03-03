@@ -1,7 +1,10 @@
 package com.Agendamento.demo.Model.HorariosService;
 
 import com.Agendamento.demo.exceptions.DataEnviadaErrada;
+import com.Agendamento.demo.exceptions.atualizacaoNaoRealizada;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -11,11 +14,11 @@ import java.sql.SQLException;
 @Service
 public class DeletaHorario{
 
-    private final AcessoDB acessoDB;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public DeletaHorario(AcessoDB acessoDB) {
-        this.acessoDB = acessoDB;
+    public DeletaHorario(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public void deletar(int id, String dia, String hora) {
@@ -23,15 +26,13 @@ public class DeletaHorario{
         String sql = "DELETE FROM horarios_indisponiveis WHERE\n" +
                 "dia = ?::date and hora = ? and idcliente = ?";
 
-        try (Connection conn = acessoDB.Conexao();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, dia);
-            stmt.setString(2, hora);
-            stmt.setInt(3, id);
+        try {
+            int a = jdbcTemplate.update(sql, dia, hora, id);
+            if(a == 0) {throw new atualizacaoNaoRealizada("Erro ao remover o horario");}
+        } catch (DataAccessException e) {
+            Throwable cause = e.getCause();
 
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            if ("22008".equals(e.getSQLState())) {
+            if (cause instanceof SQLException sqlEx && sqlEx.getSQLState().equals("22008")) {
                 throw new DataEnviadaErrada();
             }
             throw new RuntimeException("Erro de conexão: " + e.getMessage());

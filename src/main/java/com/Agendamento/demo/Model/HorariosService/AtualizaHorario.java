@@ -4,7 +4,6 @@ import com.Agendamento.demo.Entities.EstruturaDoAgendamento;
 import com.Agendamento.demo.Entities.EstruturaReagendamento;
 import com.Agendamento.demo.exceptions.DataEnviadaErrada;
 import com.Agendamento.demo.exceptions.HorarioIndisponivel;
-import com.Agendamento.demo.exceptions.UserNaoEncontrado;
 import com.Agendamento.demo.exceptions.atualizacaoNaoRealizada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -38,7 +37,6 @@ public class AtualizaHorario {
             int a = jdbcTemplate.update(sqlDeleta, antiga.getDia(), antiga.getHora(), dados.getId());
             int b = jdbcTemplate.update(sqlSalva, nova.getDia(), nova.getHora(), dados.getId());
             if(a!=1 || b != 1){throw new atualizacaoNaoRealizada("Erro ao atualizar o horário");}
-            System.out.println(dados + " " + a +b);
             return true;
         }
         catch (DataAccessException e) {
