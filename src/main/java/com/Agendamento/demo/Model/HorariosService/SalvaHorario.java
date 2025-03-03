@@ -24,14 +24,13 @@ public class SalvaHorario {
         this.acessoDB = acessoDB;
     }
 
-    //Voltar a ser void depois
     public boolean salvar(int id, String dia, String hora) {
 
         String sql = "INSERT INTO horarios_indisponiveis (dia, hora, idcliente)\n" +
                 "VALUES (?::date, ?, ?)";
 
-        confereDia(dia);
-        confereHora(hora);
+        ConfereHorario.confereDia(dia);
+        ConfereHorario.confereHora(hora);
 
         try (Connection conn = acessoDB.Conexao();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

@@ -2,11 +2,14 @@ package com.Agendamento.demo.Controller;
 
 import com.Agendamento.demo.Entities.EstruturaDoAgendamento;
 import com.Agendamento.demo.Entities.EstruturaDaLista;
+import com.Agendamento.demo.Entities.EstruturaReagendamento;
 import com.Agendamento.demo.Model.HorariosService.Servicos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class Controller {
@@ -38,5 +41,12 @@ public class Controller {
     public ResponseEntity<String> cancelaHorario(@RequestBody EstruturaDoAgendamento req){
         servicos.deletarHorario(req.getId(), req.getDia(), req.getHora());
         return ResponseEntity.status(200).body("Seu horaio foi cancelado");
+    }
+
+    @PutMapping("/atualizarHorario")
+    public ResponseEntity<String> atualizaHorarios(@RequestBody Map<String, EstruturaDoAgendamento> dados){
+        EstruturaReagendamento reagendamento = new EstruturaReagendamento(dados, estruturaDoAgendamento.inicializa());
+        servicos.atualizaHorario(reagendamento);
+        return ResponseEntity.status(200).body("Seu horaio foi atualizado");
     }
 }

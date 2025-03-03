@@ -32,4 +32,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     private ResponseEntity<String> falhaDeConexao(FalhaConexao exception){
         return ResponseEntity.status(503).body(exception.getMessage());
     }
+    @ExceptionHandler(atualizacaoNaoRealizada.class)
+    private ResponseEntity<String> falhaAtualizacao(atualizacaoNaoRealizada exception){
+        return ResponseEntity.status(204).body(exception.getMessage());
+    }
 }
