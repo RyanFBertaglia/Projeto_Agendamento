@@ -38,4 +38,21 @@ public class DeletaHorario{
             throw new RuntimeException("Erro de conexão: " + e.getMessage());
         }
     }
+    public void deletar(String dia, String hora) {
+
+        String sql = "DELETE FROM horarios_indisponiveis WHERE\n" +
+                "dia = ?::date and hora = ?";
+
+        try {
+            int a = jdbcTemplate.update(sql, dia, hora);
+            if(a == 0) {throw new atualizacaoNaoRealizada("Erro ao remover o horario");}
+        } catch (DataAccessException e) {
+            Throwable cause = e.getCause();
+
+            if (cause instanceof SQLException sqlEx && sqlEx.getSQLState().equals("22008")) {
+                throw new DataEnviadaErrada();
+            }
+            throw new RuntimeException("Erro de conexão: " + e.getMessage());
+        }
+    }
 }

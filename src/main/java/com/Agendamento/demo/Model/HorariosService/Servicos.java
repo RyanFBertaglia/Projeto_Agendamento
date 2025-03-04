@@ -14,14 +14,16 @@ public class Servicos implements ServicosAgendamento{
     private final DeletaHorario deletaHorario;
     private final PesquisaNoBD pesquisaNoBD;
     private final AtualizaHorario atualizaHorario;
+    private final RetornarHorariosUser retornarHorariosUser;
 
 
     @Autowired
-    Servicos(SalvaHorario salvaHorario, DeletaHorario deletaHorario, PesquisaNoBD pesquisaNoBD, AtualizaHorario atualizaHorario){
+    Servicos(SalvaHorario salvaHorario, DeletaHorario deletaHorario, PesquisaNoBD pesquisaNoBD, AtualizaHorario atualizaHorario, RetornarHorariosUser retornarHorariosUser){
         this.salvaHorario = salvaHorario;
         this.deletaHorario = deletaHorario;
         this.pesquisaNoBD = pesquisaNoBD;
         this.atualizaHorario = atualizaHorario;
+        this.retornarHorariosUser = retornarHorariosUser;
     }
 
     @Override
@@ -33,9 +35,15 @@ public class Servicos implements ServicosAgendamento{
          deletaHorario.deletar(id, dia, hora);
     }
     @Override
+    public void deletarHorario(String dia, String hora) { deletaHorario.deletar(dia, hora); }
+    @Override
     public ArrayList<EstruturaDaLista> BuscaHorario(String diaDeBusca) {
         return pesquisaNoBD.BuscaHorario(diaDeBusca);
     }
     @Override
     public boolean atualizaHorario(EstruturaReagendamento dados){return atualizaHorario.atualizarHorario(dados);}
+    @Override
+    public ArrayList<EstruturaDaLista> retornaHorariosUser(int id) {
+        return retornarHorariosUser.retornaHorariosUser(id);
+    }
 }

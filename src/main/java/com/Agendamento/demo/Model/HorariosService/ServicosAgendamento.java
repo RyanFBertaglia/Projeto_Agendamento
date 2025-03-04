@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public interface ServicosAgendamento {
     void salvarHorario(Integer id, String dia, String hora);
     void deletarHorario(Integer id, String dia, String hora);
+    void deletarHorario(String dia, String hora);
     ArrayList<EstruturaDaLista> BuscaHorario(String diaDeBusca);
     boolean atualizaHorario(EstruturaReagendamento dados);
+    ArrayList<EstruturaDaLista> retornaHorariosUser(int id);
 }

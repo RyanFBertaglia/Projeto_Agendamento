@@ -21,9 +21,8 @@ public class PesquisaNoBD {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public ArrayList<EstruturaDaLista> BuscaHorario(String diaDeBusca) {
+    public ArrayList<EstruturaDaLista> BuscaHorario(String diaDeBusca) throws DataAccessException{
         String sql = "SELECT * FROM horarios_indisponiveis WHERE dia = ?::date";
-        ArrayList<EstruturaDaLista> lista = new ArrayList<>();
         ConfereHorario.confereDia(diaDeBusca);
 
         try {

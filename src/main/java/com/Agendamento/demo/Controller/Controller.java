@@ -27,6 +27,11 @@ public class Controller {
         ArrayList<EstruturaDaLista> resposta = servicos.BuscaHorario(data);
         return ResponseEntity.status(200).body(resposta);
     }
+    @GetMapping("/buscamarcados")
+    public ResponseEntity<ArrayList<EstruturaDaLista>> buscaMarcados(){
+        ArrayList<EstruturaDaLista> resposta = servicos.retornaHorariosUser(estruturaDoAgendamento.inicializa());
+        return ResponseEntity.status(200).body(resposta);
+    }
 
     @PostMapping("/marcar")
     public ResponseEntity<String> marcarHorario(@RequestBody EstruturaDoAgendamento req) throws RuntimeException{
@@ -37,6 +42,12 @@ public class Controller {
     @DeleteMapping("/cancelar")
     public ResponseEntity<String> cancelaHorario(@RequestBody EstruturaDoAgendamento req){
         servicos.deletarHorario(estruturaDoAgendamento.inicializa(), req.getDia(), req.getHora());
+        return ResponseEntity.status(200).body("Seu horaio foi cancelado");
+    }
+
+    @DeleteMapping("/cancelarTerceiros")
+    public ResponseEntity<String> cancelaHorarioTerceiros(@RequestBody EstruturaDoAgendamento req){
+        servicos.deletarHorario(req.getDia(), req.getHora());
         return ResponseEntity.status(200).body("Seu horaio foi cancelado");
     }
 
