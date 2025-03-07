@@ -57,7 +57,7 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 ---
 
 ## Abaixo está o desenho da vista geral do software
-![Design page](src/main/resources/static/DesenhoDoSistema.png)
+![Design page](src/main/resources/static/desenhoSistema.svg)
 
 ## Aplicação em alguns ambientes
 ### Aplicação em Nuvem
