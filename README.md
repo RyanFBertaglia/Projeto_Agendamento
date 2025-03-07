@@ -56,16 +56,19 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 
 ---
 
+## Abaixo está o desenho da vista geral do software
+![Design page](src/main/resources/static/DesenhoDoSistema.png)
+
 ## Aplicação em alguns ambientes
 ### Aplicação em Nuvem
-![Cloud page](src/main/resources/static/logs.png)
+![Página Cloud](src/main/resources/static/logs.png)
 
 ### Dados recebidos no BD PostgreSQL 
-![Database page](src/main/resources/static/dadosAgenda.png)
+![Página Banco de Dados](src/main/resources/static/dadosAgenda.png)
     
 ## Testes Funcionais com JUnit
-![TestesPage](src/main/resources/static/testes.png)
+![Página com os testes](src/main/resources/static/testes.png)
 
 ### Aplicação no Postman
-![PostmanPage](src/main/resources/static/postmanLogin.png)
-![PostmanPage](src/main/resources/static/postmanAgendar.png)
+![Postman login](src/main/resources/static/postmanLogin.png)
+![Postman agendar](src/main/resources/static/postmanAgendar.png)
