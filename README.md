@@ -26,6 +26,7 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 - **PostgreSQL**
 - **Maven**
 - **Docker**
+- **DockerHub**
 - **JUnit**
 
 ---
@@ -38,7 +39,7 @@ Esta API foi desenvolvida utilizando **Java** com **Spring Boot** e **Spring Sec
 ### Passo a passo
 
 1. Clone o repositório:
-   > git clone https://github.com/seuusuario/projeto-agendamento-api.git
+   > git clone https://github.com/RyanFBertaglia/Projeto-Agendamento.git
   
 2. Acesse o diretório do projeto:
    > cd projeto-agendamento-api
